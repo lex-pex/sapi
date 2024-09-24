@@ -2,11 +2,19 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\RoleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Enum\RoleType;
 
 #[ORM\Entity(repositoryClass: RoleRepository::class)]
+#[ApiResource(
+    paginationEnabled: true,
+    paginationItemsPerPage: 5
+)]
+#[ApiFilter(SearchFilter::class, properties: ['name' => 'partial', 'roleType' => 'exact'])]
 class Role
 {
     #[ORM\Id]
