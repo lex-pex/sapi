@@ -8,7 +8,9 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ItemRepository::class)] 
-#[ApiResource]
+#[ApiResource(
+    description: 'Crucial Item'
+)]
 class Item
 {
     #[ORM\Id]
