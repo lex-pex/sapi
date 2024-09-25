@@ -29,6 +29,9 @@ class Role
     #[ORM\Column(type: 'string', enumType: RoleType::class)]
     private RoleType $roleType;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $isActive = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +57,17 @@ class Role
     public function setRoleType(RoleType $roleType): self
     {
         $this->roleType = $roleType;
+        return $this;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
         return $this;
     }
 }
