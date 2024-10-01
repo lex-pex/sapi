@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class RoleController extends AbstractController
+class RoleActivationController extends AbstractController
 {
     #[Route('/api/roles/{id}/activate', name: 'activate_role', methods: ['PUT'])]
     public function activateRole(int $id, EntityManagerInterface $entityManager): JsonResponse
